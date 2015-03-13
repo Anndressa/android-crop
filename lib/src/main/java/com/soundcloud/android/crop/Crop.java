@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
@@ -81,6 +82,16 @@ public class Crop {
     public Crop withMaxSize(int width, int height) {
         cropIntent.putExtra(Extra.MAX_X, width);
         cropIntent.putExtra(Extra.MAX_Y, height);
+        return this;
+    }
+
+    /**
+     * Set compress format
+     *
+     * @param format Compress format
+     */
+    public Crop withCompressFormat(Bitmap.CompressFormat format) {
+        cropIntent.putExtra(Extra.FORMAT, format);
         return this;
     }
 
